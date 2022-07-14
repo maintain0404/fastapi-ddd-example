@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "fastapi-example"
+version = "0.1.0"
+description = "FastAPI + SQLAlchemy example."
+authors = ["Taein Min <maintain0404@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.75.1"
+SQLAlchemy = "^1.4.35"
+uvicorn = "^0.17.6"
+PyYAML = "^6.0"
+sqlalchemy2-stubs = "^0.0.2-alpha.24"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.1"
+black = "^22.3.0"
+flake8 = "^4.0.1"
+isort = "^5.10.1"
+pytest-asyncio = "^0.18.3"
+
+[tool.isort]
+profile = "black"
+known_first_party = ["core", "doamin", "handler", "trait", "usecase", "util", "config", "container"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
