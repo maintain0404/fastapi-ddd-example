@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  app:
+    build: 
+      dockerfile: ./docker/Dockerfile.local
+      context: ./
+    
+  db:
+    image: postgresql:14.2-alpine
+    expose:
+      - 5432

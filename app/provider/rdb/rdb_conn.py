@@ -1,5 +1,7 @@
+from operator import attrgetter
 from typing import Any
 
+from provider.context import ctx
 from sqlalchemy.ext.asyncio import (
     AsyncSession,
     async_scoped_session,
@@ -9,8 +11,6 @@ from sqlalchemy.orm import Session, sessionmaker
 from sqlalchemy.sql import Delete, Insert, Update
 
 from config import config
-
-from .transactional import _dbsession_id
 
 
 # Official SQLALCHEMY DOCS
@@ -49,5 +49,5 @@ session_factory = sessionmaker(
 )
 
 session = async_scoped_session(
-    session_factory=session_factory, scopefunc=_dbsession_id.get
+    session_factory=session_factory, scopefunc=attrgetter(ctx, "db_scope")
 )

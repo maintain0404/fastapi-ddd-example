@@ -1,11 +1,10 @@
 from datetime import datetime
-from typing import ClassVar, Generic, TypeVar, Hashable
+from typing import ClassVar, Generic, Hashable, TypeVar
 
+from provider.rdb import declarative_mixin, registry
 from sqlalchemy import Column, MetaData, inspect
 from sqlalchemy.orm import Mapped
 from sqlalchemy.types import DateTime
-
-from provider.rdb import registry, declarative_mixin
 
 EntityId = TypeVar("EntityId", bound=Hashable)
 

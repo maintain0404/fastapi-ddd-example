@@ -1,13 +1,7 @@
-from enum import Enum
+from datetime import tzinfo
 
+from common.enum import DeployMode
 from pydantic import BaseModel, BaseSettings, SecretStr
-
-
-class DeployMode(str, Enum):
-    LOCAL = "local"
-    DEVEVLOP = "dev"
-    PRODUCTION = "prod"
-    STAGE = "stage"
 
 
 class DatabaseSettings(BaseModel):
@@ -32,13 +26,14 @@ class Settings(BaseSettings):
     READ_DB: DatabaseSettings
     WRITE_DB: DatabaseSettings
 
-    DEPLOY_MODE: DeployMode
+    DEPLOY_MODE: DeployMode = DeployMode.LOCAL
     DEBUG: bool
-    JWT_SECRET: str
-    TIMEZONE: str
+    TIMEZONE: tzinfo
 
     APP_NAME: str
     APP_DESCRIPTION: str
+    APP_HOST: str
+    APP_PORT: str
 
 
 config = Settings()

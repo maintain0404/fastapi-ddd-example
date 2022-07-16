@@ -2,8 +2,8 @@ from typing import Generic, TypeVar
 
 from sqlalchemy import select
 
-from app.provider.rdb import session
 from app.core.component import BaseRepo
+from app.provider.rdb import session
 
 from .basic_entity import BaseEntity, EntityId
 

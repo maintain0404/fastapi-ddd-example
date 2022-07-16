@@ -1,3 +1,7 @@
 __pycache__
 .vscode
 .devcontainer
+.env
+.envrc  # direnv
+logging.yaml
+

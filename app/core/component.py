@@ -1,5 +1,5 @@
-from typing import ClassVar
 from logging import Logger, getLogger
+from typing import ClassVar
 
 
 class Component:

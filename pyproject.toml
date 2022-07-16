@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "fastapi-example"
+name = "fastapi-ddd-example"
 version = "0.1.0"
 description = "FastAPI + SQLAlchemy example."
 authors = ["Taein Min <maintain0404@gmail.com>"]
@@ -11,6 +11,8 @@ SQLAlchemy = "^1.4.35"
 uvicorn = "^0.17.6"
 PyYAML = "^6.0"
 sqlalchemy2-stubs = "^0.0.2-alpha.24"
+uvloop = "^0.16.0"
+httptools = "^0.4.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.1"
@@ -22,6 +24,11 @@ pytest-asyncio = "^0.18.3"
 [tool.isort]
 profile = "black"
 known_first_party = ["core", "doamin", "handler", "trait", "usecase", "util", "config", "container"]
+
+[tool.pytest.ini_options]
+pythonpath = ["./app"]
+rootdir = './'
+asyncio_mode = 'auto'
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

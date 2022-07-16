@@ -1,7 +1,7 @@
 from fastapi.responses import JSONResponse
 
 from .exception import AppException
-from .fastapi import app
+from .server import app
 
 
 @app.exception_handler(AppException)
